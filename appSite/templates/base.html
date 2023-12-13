@@ -1,0 +1,120 @@
+{% load static %}
+{% load permission_tags %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.ico' %}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <title>Edinho{% block title %} {% endblock %}Variedades</title>
+
+</head>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  .container-wrapper {
+    flex: 1;
+    position: relative;
+  }
+
+  footer {
+    background-color: #333;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-ligth bg-ligth">
+      <div class="container">
+        <a class="navbar-brand font-weight-bold" href="{% url 'listar_produtos' %}">Edinho Variedades</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            {% if user|has_role:"administrador" %}
+            <li class="nav-item">
+              <a class="nav-link active font-weight-bold" aria-current="page" href="{% url 'listar_todos_produtos' %}">Estoque</a>
+            </li>
+            {% else %}
+            {% endif %}
+
+
+          </ul>
+
+          <a class="nav-link" href="{% url 'telaLogin' %}"><img class="iconUser" width="25" heigth="25"
+              src="{% static 'icons/user-regular.svg' %}" alt="usuario"></a>
+
+          <a class="btn btn-outline-danger btn-sm" href="{% url 'sair' %}" role="button">Sair</a>
+
+          <a class="nav-link" href="{% url 'telaCarrinho' %}"><img class="iconCart" width="30" heigth="30"
+              src="{% static 'icons/cart-shopping-solid.svg' %}" alt="carrinho"></a>
+
+          <form method="get" action="{% url 'listar_produtos' %}" class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" name="q">
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+          </form>
+        </div>
+        <!-- </div> -->
+    </nav>
+  </div>
+
+  <div class="container-wrapper">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+  <footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <span>Somos apenas um grupo em busca de pontos para não reprovar na matéria do Naldo. </span><a
+          href="{% url 'telaRedes' %}"
+          class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"> Quem
+          somos?</a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-white" href="">Groupo Edinhos</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

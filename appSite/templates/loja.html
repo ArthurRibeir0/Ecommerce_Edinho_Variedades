@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Edinho Variedades</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Tudo e mais um pouco!!</p>
+        </div>
+    </div>
+</header>
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for produto in produtos %}
+        <div class="col">
+            <div class="card h-100">
+                <!-- Product image -->
+                <div class="card-img-container">
+                    <img src="{{ produto.imagem_produto.url }}" alt="{{ produto.nome_produto }}"
+                        class="card-img-top img-fluid">
+                </div>
+                <div class="card-body">
+                    <!-- Product name -->
+                    <h5 class="card-title text-center">{{ produto.nome_produto }}</h5>
+                    <!-- Product description -->
+                    <p class="card-text text-center">{{ produto.descricao_produto }}</p>
+                    <!-- Product price -->
+                    <p class="card-text text-center" style="font-weight: bold; color: red;">R${{ produto.preco_produto|floatformat:2 }}
+                    </p>
+                </div>
+                <!-- Product actions -->
+                <div class="card-footer">
+                    <div class="d-grid">
+                        <!-- Adicione o formulário de "Comprar" aqui -->
+                        <form method="post" action="{% url 'adicionar_carrinho' produto.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Comprar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: transform 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card-img-container {
+        height: 200px;
+        /* Defina a altura desejada */
+        overflow: hidden;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        color: #555;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .cow {
+        margin-bottom: 20px;
+    }
+
+    .row {
+        margin-bottom: 50px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    // Adiciona a classe 'active' ao card clicado e remove dos outros
+    $('.card').on('click', function () {
+        $('.card').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>
+{% endblock %}

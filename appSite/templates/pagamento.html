@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Pagamento{% endblock %}
+{% block content %}
+<section class="h-100" style="background-color: #eee;">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <h3 class="fw-normal mb-4 text-black">Resumo do Pedido</h3>
+
+                <!-- Exibir informações sobre os itens do carrinho -->
+                {% for item in itens %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="lead fw-normal mb-2">{{ item.produto.nome_produto }}</p>
+                            <p><span class="text-muted">Quantidade: </span>{{ item.quantidade }}</p>
+                            <p><span class="text-muted">Preço unitário: </span>{{ item.produto.preco_produto }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <!-- Exibir o total -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="mb-0">Total: {{ total }}</h4>
+                    </div>
+                </div>
+
+                <!-- Adicionar formulário para escolher a forma de pagamento -->
+                <form method="post" action="{% url 'telaCheckout' %}">
+                    {% csrf_token %}
+                    
+
+                    <button type="submit" class="btn btn-success btn-block btn-lg">Finalizar Pedido</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

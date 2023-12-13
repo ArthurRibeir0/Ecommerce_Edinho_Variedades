@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    
+
+        h2 {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;  /* Adicione esta linha para centralizar horizontalmente */
+            max-width: 400px;  /* Adicione esta linha para limitar a largura máxima */
+        }
+        
+        p {
+            color: #6c757d;
+            margin-bottom: 20px;  /* Reduzi a margem inferior para 20px */
+        }
+
+        form {
+            display: inline-block;
+            margin-top: 15px; /* Adiciona margem para espaçamento */
+        }
+
+        button {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+
+    <div class="confirmation-container">
+        <h2>Confirmar Exclusão</h2>
+        <p>Tem certeza que deseja excluir o produto "{{ produto.nome }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Sim, excluir</button>
+        </form>
+        <a href="{% url 'listar_todos_produtos' %}">Cancelar</a>
+    </div>
+{% endblock %}

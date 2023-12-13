@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">ESTOQUE</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Aqui nós desenvolvemos algo que o Edinho sonhava em fazer,
+                então mesmo após ele te ido a lua, nós ficamos aqui para evoluir os planos dele. </p>
+        </div>
+    </div>
+</header>
+
+<div class=" teste container-fluid col-md-3">
+    <div class="card align-items">
+        <a href="{% url 'telaCadastroProduto' %}"
+            class="card-button text-center btn-sm btn-success fs-4 fw-bold">Cadastrar
+            Produtos</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div name = "teste" class="row row-cols-1 row-cols-md-3 g-4">
+        {% for produto in produtos %}
+        <div class="col">
+            <div class="card h-100">
+                <!-- Product image -->
+                <div class="card-img-container">
+                    <img src="{{ produto.imagem_produto.url }}" alt="{{ produto.nome_produto }}"
+                        class="card-img-top img-fluid">
+                </div>
+                <div class="card-body">
+                    <!-- Product name -->
+                    <h5 class="card-title text-center">{{ produto.nome_produto }}</h5>
+                    <!-- Product description -->
+                    <p class="card-text text-center">{{ produto.descricao_produto }}</p>
+                    <!-- Product price -->
+                    <p class="card-text text-center" style="font-weight: bold; color: red;">R$ {{ produto.preco_produto|default:0.0|floatformat:2 }}</p>
+                </div>
+                <!-- Product actions -->
+                <div class="card-footer">
+                    <div class="d-grid">
+                        <!-- Adicione os botões de "Editar" e "Excluir" aqui -->
+                        <a href="{% url 'editarProduto' produto.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'excluirProduto' produto.id %}" class="btn btn-danger">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+</div>
+
+
+<style>
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: transform 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        transform: scale(1.07);
+    }
+
+    .card-img-container {
+        height: 200px;
+        /* Defina a altura desejada */
+        overflow: hidden;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        color: #555;
+    }
+
+    .btn-primary,
+    .btn-danger {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .col {
+        margin-bottom: 20px;
+    }
+
+    .row {
+        margin-bottom: 50px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    // Adiciona a classe 'active' ao card clicado e remove dos outros
+    $('.card').on('click', function () {
+        $('.card').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>
+{% endblock %}

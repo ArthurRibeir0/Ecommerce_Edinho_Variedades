@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Agradecimento{% endblock %}
+{% block content %}
+<section class="h-100" style="background-color: #eee;">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10 text-center">
+                <h3 class="fw-normal mb-4 text-black" id="agradecimento">Obrigado pela sua compra!</h3>
+                <button class="btn btn-primary" onclick="voltarParaInicio()">Voltar para a página inicial</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Adicionando efeito de transição
+    document.addEventListener('DOMContentLoaded', function() {
+        const agradecimento = document.getElementById('agradecimento');
+        agradecimento.style.opacity = '0';
+        setTimeout(function() {
+            agradecimento.style.transition = 'opacity 1s';
+            agradecimento.style.opacity = '1';
+        }, 100);
+    });
+
+    // Função para voltar à página inicial
+    function voltarParaInicio() {
+        window.location.href = "{% url 'listar_produtos' %}";
+    }
+</script>
+
+{% endblock %}

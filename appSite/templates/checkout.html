@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<!-- <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+    integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" /> -->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-8 mx-auto">
+
+            <div class="card">
+                <div class="card-body">
+                    <ol class="activity-checkout mb-0 px-4 mt-3">
+                        <li class="checkout-item">
+                            <div class="feed-item-list">
+                                <div>
+                                    <h5 class="font-size-16 mb-1">Dados do Comprador</h5>
+                                    <p class="text-muted text-truncate mb-4">Preencha todos os campos</p>
+                                    <div class="mb-3">
+                                        <form>
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="billing-name">Nome</label>
+                                                            <input type="text" class="form-control" id="billing-name"
+                                                                placeholder="Digite seu nome">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label"
+                                                                for="billing-email-address">Endereço de Email</label>
+                                                            <input type="email" class="form-control"
+                                                                id="billing-email-address"
+                                                                placeholder="Digite seu email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label"
+                                                                for="billing-phone">Telefone</label>
+                                                            <input type="text" class="form-control" id="billing-phone"
+                                                                placeholder="Digite seu telefone">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="billing-address">Endereço</label>
+                                                    <textarea class="form-control" id="billing-address" rows="3"
+                                                        placeholder="Digite o endereço completo"></textarea>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-4 mb-lg-0">
+                                                            <label class="form-label">País</label>
+                                                            <select class="form-control form-select" title="Country">
+                                                                <option value="0">Selecione Seu País</option>
+                                                                <option value="AF">Estados Unidos</option>
+                                                                <option value="AL">China</option>
+                                                                <option value="AS">Japão</option>
+                                                                <option value="DZ">Alemanha</option>
+                                                                <option value="DZ">Reino Unido</option>
+                                                                <option value="AO">França</option>
+                                                                <option value="AS">índia</option>
+                                                                <option value="AS">Itália</option>
+                                                                <option value="AS">Brasil</option>
+                                                                <option value="AS">Canadá</option>
+                                                                <option value="AS">Coréia do Sul</option>
+                                                                <option value="AS">Rússia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-4 mb-lg-0">
+                                                            <label class="form-label" for="billing-city">Cidade</label>
+                                                            <input type="text" class="form-control" id="billing-city"
+                                                                placeholder="Digite sua cidade">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-0">
+                                                            <label class="form-label" for="zip-code">CEP</label>
+                                                            <input type="text" class="form-control" id="CEP"
+                                                                placeholder="Digite seu cep">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="checkout-item">
+                            <div class="feed-item-list">
+                                <div>
+                                    <h5 class="font-size-16 mb-1">Informação de Envio</h5>
+                                    <p class="text-muted text-truncate mb-4">Selecione seu endereço</p>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div data-bs-toggle="collapse">
+                                                    <label class="card-radio-label mb-0">
+                                                        <input type="radio" name="address" id="info-address1"
+                                                            class="card-radio-input" checked="">
+                                                        <div class="card-radio text-truncate p-3">
+                                                            <span class="fs-14 mb-4 d-block">Endereço 1</span>
+                                                            <span class="fs-14 mb-2 d-block"></span>
+                                                            <span
+                                                                class="text-muted fw-normal text-wrap mb-1 d-block">
+                                                                </span>
+                                                            <span class="text-muted fw-normal d-block">
+                                                                </span>
+                                                        </div>
+                                                    </label>
+                                                    <div class="edit-btn bg-light  rounded">
+                                                        <a href="#" data-bs-toggle="tooltip" data-placement="top"
+                                                            title="" data-bs-original-title="Edit">
+                                                            <i class="bx bx-pencil font-size-16"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div>
+                                                    <label class="card-radio-label mb-0">
+                                                        <input type="radio" name="address" id="info-address2"
+                                                            class="card-radio-input">
+                                                        <div class="card-radio text-truncate p-3">
+                                                            <span class="fs-14 mb-4 d-block">Endereço 2</span>
+                                                            <span class="fs-14 mb-2 d-block"></span>
+                                                            <span
+                                                                class="text-muted fw-normal text-wrap mb-1 d-block">
+                                                                </span>
+                                                            <span class="text-muted fw-normal d-block">
+                                                                </span>
+                                                        </div>
+                                                    </label>
+                                                    <div class="edit-btn bg-light  rounded">
+                                                        <a href="#" data-bs-toggle="tooltip" data-placement="top"
+                                                            title="" data-bs-original-title="Edit">
+                                                            <i class="bx bx-pencil font-size-16"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="checkout-item">
+                            <div class="feed-item-list">
+                                <div>
+                                    <h5 class="font-size-16 mb-1">Informação de Pagamento</h5>
+                                    <p class="text-muted text-truncate mb-4">Selecione sua forma de pagamento</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-size-14 mb-3">Formas de Pagamento :</h5>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-sm-6">
+                                            <div data-bs-toggle="collapse">
+                                                <label class="card-radio-label">
+                                                    <input type="radio" name="pay-method" id="pay-methodoption1"
+                                                        class="card-radio-input">
+                                                    <span class="card-radio py-3 text-center text-truncate">
+                                                        <img class="iconCard" width="48" height="48"
+                                                            src="{% static 'icons/credit-card-regular.svg' %}"
+                                                            alt="creditoDebito">
+                                                        <p>Débito / Credito</p>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-sm-6">
+                                            <div>
+                                                <label class="card-radio-label">
+                                                    <input type="radio" name="pay-method" id="pay-methodoption2"
+                                                        class="card-radio-input">
+                                                    <span class="card-radio py-3 text-center text-truncate">
+                                                        <img class="iconsBoleto" width="48" height="48"
+                                                            src="{% static 'icons/barcode-solid.svg' %}"
+                                                            alt="boletoBancario">
+                                                        <p>Boleto Bancário</p>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-sm-6">
+                                            <div>
+                                                <label class="card-radio-label">
+                                                    <input type="radio" name="pay-method" id="pay-methodoption3"
+                                                        class="card-radio-input" checked="">
+                                                    <span class="card-radio py-3 text-center text-truncate">
+                                                        <img class="iconsPix" width="48" height="48"
+                                                            src="{% static 'icons/Pix.svg' %}" alt="pix">
+                                                        <p>Pix</p>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-sm-6">
+                                            <div data-bs-toggle="collapse">
+                                                <label class="card-radio-label">
+                                                    <input type="radio" name="pay-method" id="pay-methodoption1"
+                                                        class="card-radio-input">
+                                                    <span class="card-radio py-3 text-center text-truncate">
+                                                        <img class="iconCardEdinho" width="48" height="48"
+                                                            src="{% static 'icons/credit-card-regular.svg' %}"
+                                                            alt="edinhoCard">
+                                                        <p>DinhoCard</p>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="row my-4">
+                <div class="col">
+                    <a href="{% url 'listar_produtos'%}" class="btn btn-link text-muted">
+                        <i class="mdi mdi-arrow-left me-1"></i>Continue Comprando</a>
+                </div> <!-- end col -->
+                <div class="col">
+                    <div class="text-end mt-2 mt-sm-0">
+                        <a href="{% url 'finalizar_pagamento'%}" class="btn btn-success">
+                            <i class="mdi mdi-cart-outline me-1"></i> Finalizar </a>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row-->
+        </div>
+    </div>
+</div>
+
+<!-- Adicione um modal para a edição do endereço -->
+<div class="modal fade" id="modal-edicao-endereco" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- ... (seu código de edição de endereço) ... -->
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
