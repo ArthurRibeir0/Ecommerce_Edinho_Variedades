@@ -1,5 +1,5 @@
 # Ecommerce_Edinho_Variedades
-Projeto proposto pelo nosso professor da faculdade de Análise e Desenvolvimento de Sistemas (ADS) para aprendizado e também obtenção de nota na matéria. A seguir terá instruções para a instalação e execução do projeto. OBS.: antes de tentar rodar o projeto, certifique-se que você está com o python mais recente instalado.
+Projeto proposto pelo nosso professor da faculdade de Análise e Desenvolvimento de Sistemas (ADS) para aprendizado e também obtenção de nota na matéria. A seguir terá instruções para a instalação e execução do projeto. Obs.: antes de tentar rodar o projeto, certifique-se que você está com o python mais recente instalado.
 
 Ao baixar o projeto, exclua a VENV presente e crie uma nova no terminal com o seguinte comando:
 
