@@ -1,5 +1,7 @@
-Antes de tentar rodar o projeto, certifique-se que você está com o python mais recente instalado.
+# Ecommerce_Edinho_Variedades
+Projeto proposto pelo nosso professor da faculdade de Análise e Desenvolvimento de Sistemas (ADS) para aprendizado e também obtenção de nota na matéria.
 
+Antes de tentar rodar o projeto, certifique-se que você está com o python mais recente instalado.
 
 Ao baixar o projeto, exclua a VENV presente e crie uma nova no terminal com o seguinte comando: "python -m venv 'nome da venv da sua preferência'" (em windows), "python3 -m venv 'nome da venv da sua preferência'" (em linux).
 
